@@ -1,6 +1,7 @@
 import React from "react";
 import { FiShare2, FiBookmark, FiEye } from "react-icons/fi";
 import { BsStarFill, BsStar } from "react-icons/bs";
+import { Link } from "react-router";
 
 const formatDate = (iso) => {
   if (!iso) return "Unknown";
@@ -28,6 +29,7 @@ const Stars = ({ value = 0, outOf = 5 }) => {
 
 const NewsCard = ({ news }) => {
   const {
+    id,
     title,
     details,
     image_url,
@@ -80,7 +82,7 @@ const NewsCard = ({ news }) => {
       {/* Body */}
       <div className="card-body pt-4">
         <p className="text-sm md:text-[15px] text-base-content/70">{clamp(details, 220)}</p>
-        <button className="btn btn-link no-underline px-0 text-primary">Read More</button>
+        <Link to={`/news-details/${id}`} className="btn btn-link no-underline px-0 text-primary">Read More</Link>
 
         {/* Footer */}
         <div className="mt-1 flex items-center justify-between">
